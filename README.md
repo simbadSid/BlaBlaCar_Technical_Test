@@ -1,5 +1,5 @@
 # BlaBlaCar technical test
-    This repository contains our solution to the BlaBlaCar technical test (see src/main/resources/BlaBlaCar_TechnicalTest.pdf).
+This repository contains our solution to the BlaBlaCar technical test (see src/main/resources/BlaBlaCar_TechnicalTest.pdf).
 
 ## Principle of the solution
 Our solution for the simulation is a multithreaded approach.
@@ -25,6 +25,7 @@ Consequently, at each iteration, a mower's position is only compared to its clos
 
 ## Build
 Our project is built and deployed using the Apache Ant toolset.
+The build script is entirely implemented in "./build.xml".
 In order to build an executable, a user needs to run the command:
 ```
 ant distribute
@@ -48,10 +49,31 @@ java -jar dist/lib/BlaBlaCar_Technical-1.0.jar --inputFile <file path>
 All the other options may be discovered using the --help input.
 
 ## Test
+The different scenario that we have implemented to test our code are in "./src/test/resources/input".
+Some of these scenario have been manually solved and saved in "./src/test/resources/output".
+They allow to check the functional correctness of the code.
+Other scenarios are used for the high number of instruction and/or mowers.
+All these tests are based on JUnit and may be executed using
+However, a different input file may be specified using
+```
+java -jar dist/lib/BlaBlaCar_TechnicalTest-1.0.jar
+```
+
 
 ## Generate Java doc
+The javadoc of all the classes of this project may be generated using
+```
+ant doc
+```
+This results in creating the html file corresponding to each class.
+ This file is stored within "./doc".
 
-## TODO
+## Note
+Some libraries (such as the Debug or Log libraries) have been reimplemented in this project.
+Our re-implementation is a lightweight code that allows this project to only use standard libraries.
+This is done on purpose in order to ease the deployment and the review.
+
+## Futur implementations
 1. Javadoc: correct @warning keyword
 1. Add the support for thread-affinity by scanning the number of CPU and distributing the threads
 1. Finish the implementation of the concurrent checker:
