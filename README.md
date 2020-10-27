@@ -1,5 +1,11 @@
 # BlaBlaCar technical test
 This repository contains our solution to the BlaBlaCar technical test (see src/main/resources/BlaBlaCar_TechnicalTest.pdf).
+It is noteworthy that we have assumed that all the mowers of the simulations start moving at the same time.
+They also move at the same pace (iterative simulation).
+In order to deal with the collisions, we have assumed that: 
+1. At a given iteration, if a mower 1 moves (forward) toward a mower2 that remains at the same cell, the move of mower 1 is the only one to be canceled.
+1. If two or more mowers move toward the same cell at the same time, all these moves (Forward) are silently canceled except one.
+
 
 ## Principle of the solution
 Our solution for the simulation is a multithreaded approach.
