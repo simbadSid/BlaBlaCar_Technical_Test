@@ -30,7 +30,7 @@ public class UserInput
 
     public static final String      USER_HELP_INPUTFILE     = "<arg1> Path to the user input file.   Default = " + USER_DEFAULT_INPUTFILE;
     public static final String      USER_HELP_NBTHREAD      = "<arg1> Maximum number of threads to be deployed excluding the main (>= 1)   Default = " + USER_DEFAULT_NBTHREAD;
-    public static final String      USER_HELP_DEBUG         = "Indicates weather or not to use a logger to print operations.   Default = " + USER_DEFAULT_DEBUG;
+    public static final String      USER_HELP_DEBUG         = "Indicates weather or not to use a debug/logger method and which flag to use for logging.   Default = " + USER_DEFAULT_DEBUG;
     public static final String      USER_HELP_HELP          = "Prints this help";
 
     private String[]                args;
