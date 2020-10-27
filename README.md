@@ -54,7 +54,6 @@ Some of these scenario have been manually solved and saved in "./src/test/resour
 They allow to check the functional correctness of the code.
 Other scenarios are used for the high number of instruction and/or mowers.
 All these tests are based on JUnit and may be executed using
-However, a different input file may be specified using
 ```
 java -jar dist/lib/BlaBlaCar_TechnicalTest-1.0.jar
 ```
