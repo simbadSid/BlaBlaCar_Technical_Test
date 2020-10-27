@@ -6,10 +6,10 @@
 
     <!-- Set global properties for this build -->
     <property name="projectName"    value="BlaBlaCar_Technical" />
-    <property name="dir.src"            location="src" />
-    <property name="dir.build"          location="out" />
-    <property name="dir.dist"           location="dist" />
-    <property name="dir.doc"            location="doc" />
+    <property name="dir.src"        location="src" />
+    <property name="dir.build"      location="out" />
+    <property name="dir.dist"       location="dist" />
+    <property name="dir.doc"        location="doc" />
     <property name="mainClass"      value="main/java/Main" />
     <property name="mainClassTest"  value="test/java/MainTest" />
     <property name="version"        value="1.0" />
