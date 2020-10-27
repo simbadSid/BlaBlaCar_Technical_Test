@@ -1,0 +1,67 @@
+<project name="BlaBlaCar_Technical" default="distribute" basedir=".">
+    <description>
+           Ant script to build the project
+    </description>
+
+
+    <!-- Set global properties for this build -->
+    <property name="projectName"    value="BlaBlaCar_Technical" />
+    <property name="src"            location="src" />
+    <property name="build"          location="out" />
+    <property name="dist"           location="dist" />
+    <property name="mainClass"      value="main/java/Main" />
+    <property name="mainClassTest"  value="test/java/MainTest" />
+    <property name="version"        value="1.0" />
+
+
+    <!-- Init the binary directories -->
+    <target     name="init"
+                description="Create the binary directories">
+        <!-- Create the time stamp -->
+        <tstamp />
+        <mkdir dir="${build}" />
+        <mkdir dir="${dist}" />
+    </target>
+
+
+    <!-- Compile each java file -->
+    <target     name="compile"
+                depends="init"
+                description="Compile the java sources">
+        <javac srcdir="${src}" destdir="${build}" />
+    </target>
+
+
+    <!-- Generate an executable jar -->
+    <target     name="distribute"
+                depends="compile"
+                description="Generate the distribution">
+        <mkdir dir="${dist}/lib" />
+
+        <jar destfile="${dist}/lib/${projectName}-${version}.jar" basedir="${build}">
+                <manifest>
+                        <attribute name="Main-Class" value="${mainClass}" />
+                </manifest>
+        </jar>
+    </target>
+
+    <!-- Generate an executable jar -->
+    <target     name="distributeTest"
+                depends="compile"
+                description="Generate the unit-test distribution">
+        <mkdir dir="${dist}/lib" />
+
+        <jar destfile="${dist}/lib/${projectName}Test-${version}.jar" basedir="${build}">
+                <manifest>
+                        <attribute name="Main-Class" value="${mainClassTest}" />
+                </manifest>
+        </jar>
+    </target>
+
+    <!-- Clean all the binary directories -->
+    <target     name="clean"
+                description="Clean up all the binary directories">
+        <delete dir="${build}" />
+        <delete dir="${dist}" />
+    </target>
+</project>
