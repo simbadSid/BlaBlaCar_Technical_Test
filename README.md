@@ -37,10 +37,6 @@ In order to build an executable, a user needs to run the command:
 ant distribute
 ```
 This generates an executable jar file with our main simulation program.
-Similarly, the unit test executables may be generated using
-```
-ant distributeTest
-```
 
 ## Usage
 Once the executable has been generated, our program may be tested using
@@ -61,7 +57,7 @@ They allow to check the functional correctness of the code.
 Other scenarios are used for the high number of instruction and/or mowers.
 All these tests are based on JUnit and may be executed using
 ```
-java -jar dist/lib/BlaBlaCar_TechnicalTest-1.0.jar
+ant test
 ```
 
 

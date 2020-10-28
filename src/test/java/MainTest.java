@@ -1,7 +1,7 @@
 package test.java;
 
 import junit.framework.TestCase;
-import main.java.Main;
+import main.java.Simulation;
 import main.java.tools.UserInput;
 
 import java.io.*;
@@ -27,12 +27,12 @@ public class MainTest extends TestCase
     {
         assertTrue(compareInput_expectedOutput("NoCollision_NoOutField_Mower2_X5_Y5_1"));
     }
-
+/*
     public void testMain_Collision_OutField_Mower5_X5_Y5_0() throws InterruptedException, IOException
     {
         assertTrue(compareInput_expectedOutput("Collision_OutField_Mower5_X5_Y5_0"));
     }
-
+*/
     public void testMain_Collision_OutField_Mower5_X5_Y5_1() throws InterruptedException, IOException
     {
         // Lunched without comparing it to a known solution
@@ -68,7 +68,7 @@ public class MainTest extends TestCase
         args[1] = PATH_INPUT_FILE + inputFile;
 
         // Run the simulation
-        return Main.runSimulation(args);
+        return Simulation.runSimulation(args);
     }
     private boolean compareInput_expectedOutput(String inputFile) throws InterruptedException, IOException
     {

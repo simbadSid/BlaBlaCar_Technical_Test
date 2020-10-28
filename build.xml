@@ -1,4 +1,5 @@
-<project name="BlaBlaCar_Technical" default="distribute" basedir=".">
+<project name="BlaBlaCar_Technical"
+         default="distribute" basedir=".">
     <description>
            Ant script to build the project
     </description>
@@ -11,7 +12,7 @@
     <property name="dir.dist"       location="dist" />
     <property name="dir.doc"        location="doc" />
     <property name="mainClass"      value="main/java/Main" />
-    <property name="mainClassTest"  value="test/java/MainTest" />
+    <property name="lib.junit"      value="lib/junit-4.10.jar" />
     <property name="version"        value="1.0" />
 
 
@@ -46,17 +47,19 @@
         </jar>
     </target>
 
-    <!-- Generate an executable jar -->
-    <target     name="distributeTest"
-                depends="compile"
-                description="Generate the unit-test distribution">
-        <mkdir dir="${dir.dist}/lib" />
-
-        <jar destfile="${dir.dist}/lib/${projectName}Test-${version}.jar" basedir="${dir.build}">
-                <manifest>
-                        <attribute name="Main-Class" value="${mainClassTest}" />
-                </manifest>
-        </jar>
+    <target name="test" depends="compile">
+        <junit>
+            <classpath>
+                <pathelement location="${dir.build}" />
+                <pathelement location="${lib.junit}"/>
+            </classpath>
+            <batchtest>
+                <fileset dir="${dir.build}">
+                    <include name="**/*Test*" />
+                </fileset>
+            </batchtest>
+            <formatter type="brief" usefile="false"/>
+        </junit>
     </target>
 
     <!-- Generate javadocs for current project into ${dir.dir.doc} -->
@@ -73,4 +76,5 @@
         <delete dir="${dir.dist}" />
         <delete dir="${dir.doc}" />
     </target>
+
 </project>
